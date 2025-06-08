@@ -12,16 +12,6 @@
 All team members participated equally in both Part A and Part B of the project.
 
 ---
-
-## Project Overview
-
-This project involves writing and executing Arch-242 assembly programs using custom tools developed for assembling and running code on a 20×10 LED matrix emulator. It includes:
-
-- **Assembler (Part A1)**  
-- **Emulator (Part A2)**  
-- **Snake Game in Assembly (Part A3)**
-
----
 ## How to Use
 
 ### Part A1 – Assembling a File
