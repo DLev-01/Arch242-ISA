@@ -443,6 +443,7 @@ DONE_MOVE:
     from-mdc
     sub 1
     beqz DO_UPDATE
+    call GEN_FOOD
     call GROW_BODY
     b SKIP_UPDATE
 
@@ -1230,7 +1231,7 @@ CHECK_EAT:
     rcrd 54
     acc 1
     to-mdc
-    b GEN_FOOD
+    ret
 
     ADD_TO_91: rcrd 91
     inc*-mdc
@@ -1238,7 +1239,7 @@ CHECK_EAT:
     rcrd 54
     acc 1
     to-mdc
-    b GEN_FOOD
+    ret
 
     NO_EAT: rcrd 54
     acc 0

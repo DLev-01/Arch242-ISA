@@ -1,12 +1,12 @@
 import pyxel as px
 from typing import Literal
 
-CELL_SIZE = 10
+CELL_SIZE = 15
 ROWS = 10
 COLS = 20
 DISPLAY_HEIGHT = ROWS * CELL_SIZE + CELL_SIZE
 DISPLAY_WIDTH = COLS * CELL_SIZE + 1
-PLAY_TYPE: Literal["Smooth", "Single", "Sexy"] = "Smooth"
+PLAY_TYPE: Literal["Smooth", "Single", "Sexy"] = "Smooth" 
 SNAKE_SPEED = 10 # Lower value is faster
 class Emulator:
     def __init__(self, f_name: str):
@@ -84,8 +84,10 @@ class Emulator:
 
             self.ioa = 0
         if PLAY_TYPE == 'Single':
-            if px.btnp(px.KEY_KP_0): self.emulate()
+            if px.btnp(px.KEY_T): self.emulate()
             if px.btn(px.KEY_KP_PLUS): self.emulate()
+            if px.btn(px.KEY_KP_MULTIPLY):
+                for _ in range(10): self.emulate()
             self.ioa = (px.btn(px.KEY_W) << 0) + (px.btn(px.KEY_S) << 1) + (px.btn(px.KEY_A) << 2) + (px.btn(px.KEY_D) << 3)
         if PLAY_TYPE == "Sexy":   
             self.ioa = (px.btn(px.KEY_W) << 0) + (px.btn(px.KEY_S) << 1) + (px.btn(px.KEY_A) << 2) + (px.btn(px.KEY_D) << 3)
@@ -106,14 +108,14 @@ class Emulator:
                 
     def emulate(self):
         global cntr
-        self.cycle += 1
+        self.cycle+=1
         if len(self.instructions) <= self.pc: return
         instr = self.instructions[self.pc]
         f = self.__getattribute__(f"{instr[0]}")
         self.pc = f(*instr[1:])
         
         # print(instr)
-        # print(f"{self.regs}, acc: 0b{self.acum}, cf: {self.cf}, temp: {self.temp}, pc: {self.pc}, cycle: {self.cycle}")
+        # print(f"{self.regs}, acc: {self.acum}, cf: {self.cf}, temp: {self.temp}, pc: {self.pc}, cycle: {self.cycle}")
         # else: 
         # if PLAY_TYPE == "Single":
         #     print(instr)
@@ -305,7 +307,7 @@ class Emulator:
         return self.pc + 1
     
     def shutdown(self):
-        self.cycle += 1
+        # self.cycle += 1
         self.enabled = False
         return self.pc + 2
 
@@ -317,50 +319,50 @@ class Emulator:
         return self.pc + 1
 
     def add(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.acum = (self.acum + imm) & 0xf
         return self.pc + 2
     
     def sub(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.acum = (self.acum - imm) & 0xf
         return self.pc + 2
         
     def and_(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.acum = (self.acum & imm) & 0xf
         return self.pc + 2
     
     def xor(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.acum = (self.acum ^ imm) & 0xf
         return self.pc + 2
 
     def or_(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.acum = (self.acum | imm) & 0xf
         return self.pc + 2
 
     def r4(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.regs[4] = imm
         return self.pc + 2
 
     def rarb(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.regs[1] = imm >> 4
         self.regs[0] = imm & 15
         return self.pc + 2
 
     def rcrd(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.regs[3] = imm >> 4
         self.regs[2] = imm & 15
@@ -372,68 +374,68 @@ class Emulator:
         return self.pc + 1
 
     def b_bit(self, dk: str, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm,k = int(sim), int(dk)
         if (self.acum >> k) & 1:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def bnz_a(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.regs[0] != 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def bnz_b(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.regs[1] != 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def beqz(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.acum != 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def bnez(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.acum == 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def beqz_cf(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.cf == 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def bnez_cf(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.cf != 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def bnz_d(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         if self.regs[3] != 0:
             return (self.pc & 0b1111100000000000) | (imm & 0b11111111111)
         return self.pc + 2
 
     def b(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         return (self.pc & 0b1111000000000000) | (imm & 0b111111111111)
 
     def call(self, sim: str):
-        self.cycle += 1
+        # self.cycle += 1
         imm = int(sim)
         self.temp = self.pc + 2
         return (self.pc & 0b1111000000000000) | (imm & 0b111111111111)

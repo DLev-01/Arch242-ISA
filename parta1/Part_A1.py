@@ -98,4 +98,4 @@ def assemble(f_name: str, conv: str):
     instr_dest.close()
 
 if __name__ == "__main__":
-    assemble("Snake.asm", "hex")
+    assemble("input.asm", "hex")
