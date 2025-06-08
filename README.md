@@ -1,22 +1,39 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/KjUzOSFc)
 
-Team name: minecraft eyyy 
+# Minecraft Eyyy – Arch-242 Assembly Project
 
-Team members:
-Alcancia, Dean Robin A.
-Dianito, Levie M.
-Dollision III, Hedelito M.
-Junio, Ivan L.
+## Team Members
+- Alcancia, Dean Robin A. 
+- Dianito, Levie M. 
+- Dollision III, Hedelito M. 
+- Junio, Ivan L.
 
-Contributions:
-All team members participated in both Part A and Part B.
+## Contributions
+All team members participated equally in both Part A and Part B of the project.
 
-Instructions for Part A1:
-The code for assembly is in parta1/Part_A1.py however, we also have a file named "Assemble.py" for ease of use. Starting from the root folder of the repository, input the location of the file you want to assemble and run the file.
+---
 
-Instructions for Part A2 and Part A3:
+## 🛠️ Project Overview
+
+This project involves writing and executing Arch-242 assembly programs using custom tools developed for assembling and running code on a 20×10 LED matrix emulator. It includes:
+
+- **Assembler (Part A1)**  
+- **Emulator (Part A2)**  
+- **Snake Game in Assembly (Part A3)**
+
+---
+## How to Use
+
+### Part A1 – Assembling a File
+
+You can assemble a `.asm` file using `Assemble.py` for convenience. Just replace the parameter of the assemble function to your `.asm` file.
+
+### Part A2 and A3 - Running Snake
+
 In a terminal, you can use this command call:
-python parta2/Part_A2.py <.asm file>
 
-e.g.
-python parta2/Part_A2.py parta3/Snake.asm to run the assembly Snake game.
+```bash
+python parta2/Part_A2.py <.asm file>
+```
+
+e.g. python parta2/Part_A2.py parta3/Snake.asm to run the assembly Snake game.

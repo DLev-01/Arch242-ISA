@@ -14,7 +14,7 @@ def assemble(f_name: str, conv: str):
     instructions: list[list[str]] = []
     labels: dict[str, int] = {}
 
-    mem_dest = open("mem.txt", "w")
+    mem_dest = open("parta1/mem.txt", "w")
     mem_dest.write(f"v3.0 hex bytes\n")
     with open(f_name) as file:  # pseudo-compiler
         pc = 0
@@ -44,7 +44,7 @@ def assemble(f_name: str, conv: str):
         for i in range(len(line)):
             if line[i] in labels: line[i] = f"{labels[line[i]]}"
 
-    instr_dest = open("instr.txt", "w")
+    instr_dest = open("parta1/instr.txt", "w")
     instr_dest.write(f"v3.0 hex bytes\n")
     def writeByte(val: int):
         assert val <= 0xff
