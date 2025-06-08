@@ -6,7 +6,7 @@ ROWS = 10
 COLS = 20
 DISPLAY_HEIGHT = ROWS * CELL_SIZE + CELL_SIZE
 DISPLAY_WIDTH = COLS * CELL_SIZE + 1
-PLAY_TYPE: Literal["Smooth", "Single", "Sexy"] = "Sexy"
+PLAY_TYPE: Literal["Smooth", "Single", "Sexy"] = "Smooth"
 SNAKE_SPEED = 10 # Lower value is faster
 class Emulator:
     def __init__(self, f_name: str):
@@ -55,7 +55,6 @@ class Emulator:
                 if line[i] in self.labels: line[i] = f"{self.labels[line[i]]}"
         
         px.init(DISPLAY_WIDTH, DISPLAY_HEIGHT, title = "ARCH 242 Snake Game")
-        px.load("IO.pyxres")
         px.run(self.update, self.draw)
             
     def update(self):    
@@ -113,8 +112,8 @@ class Emulator:
         f = self.__getattribute__(f"{instr[0]}")
         self.pc = f(*instr[1:])
         
-        print(instr)
-        print(f"{self.regs}, acc: 0b{self.acum}, cf: {self.cf}, temp: {self.temp}, pc: {self.pc}, cycle: {self.cycle}")
+        # print(instr)
+        # print(f"{self.regs}, acc: 0b{self.acum}, cf: {self.cf}, temp: {self.temp}, pc: {self.pc}, cycle: {self.cycle}")
         # else: 
         # if PLAY_TYPE == "Single":
         #     print(instr)

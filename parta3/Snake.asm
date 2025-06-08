@@ -1,9 +1,3 @@
-rcrd 254 // seed1
-acc 0
-to-mdc
-rcrd 255 // seed2
-acc 0
-to-mdc
 START:
     call INITIALIZE
     rcrd 250 
