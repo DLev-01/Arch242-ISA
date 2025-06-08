@@ -1,0 +1,13 @@
+0-49 : Temporary
+50-51: RNG seed
+52-53: Address of food
+54: Address of eat condition
+90-91 : Body size
+97-99 : Address of next pos
+100-154 : Address of body (including head)
+160-162 : Address of head
+163-164 : Address of head in 100-154
+192-241 : Addres of LED
+250 : Address of ioa
+254-255 : Global seed
+108 : Address of head value// static
