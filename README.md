@@ -5,7 +5,7 @@
 ## Team Members
 - Alcancia, Dean Robin A. 
 - Dianito, Levie M. 
-- Dollision III, Hedelito M. 
+- Dollison, Hedelito III M. 
 - Junio, Ivan L.
 
 ## Contributions
