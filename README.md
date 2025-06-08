@@ -26,4 +26,8 @@ In a terminal, you can use this command call:
 python parta2/Part_A2.py <.asm file>
 ```
 
-e.g. python parta2/Part_A2.py parta3/Snake.asm to run the assembly Snake game.
+As an example, you can use this to run the assembly Snake game:
+
+```bash
+python parta2/Part_A2.py parta3/Snake.asm
+```
