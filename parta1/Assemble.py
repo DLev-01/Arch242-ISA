@@ -1,3 +1,3 @@
 from Part_A1 import assemble
 
-assemble("Snake.asm", "hex")
+assemble("parta3/Snake.asm", "hex")

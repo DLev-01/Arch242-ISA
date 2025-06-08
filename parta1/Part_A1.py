@@ -3,7 +3,7 @@ from collections import defaultdict
 REGS = ["RA", "RB", "RC", "RD", "RE", "RF"]
 
 encoding_map: dict[str,str] = defaultdict()
-with open("encode.txt", "r") as f:
+with open("parta1/encode.txt", "r") as f:
     for line in f:
         line = line.strip()
         i = line.index(':')
