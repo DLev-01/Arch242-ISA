@@ -32,6 +32,7 @@ As an example, you can use this to run the assembly Snake game for Part A3:
 python parta2/Part_A2.py parta3/Snake.asm
 ```
 
+Move the snake with W,A,S,D keys, and eat the apple to score up. Hitting the border or the snake's body loses the game.   
 When you reach the max score of 15, the game will freeze (shutdown) to indicate winning. (Press Q to quit.)
 
 ### Part B - Arch 242 Snake Simulator
